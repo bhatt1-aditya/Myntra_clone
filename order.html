@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>order</title>
+    <link rel="stylesheet" href="order.css" />
+  </head>
+  <body>
+    <nav>
+      <div>
+        <img
+          src="https://s.yimg.com/fz/api/res/1.2/bwLpWMzIshGmcI0m5FeHcw--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpdDtoPTI0MDtxPTgwO3c9MzMy/https://s.yimg.com/zb/imgv1/88485e2c-b94e-3589-b5cc-f911bca0be47/t_500x300"
+          style="height: 30px; width: 54px"
+        />
+      </div>
+      <div>BAG -------------- ADDRESS -------------PAYMENT</div>
+      <div class="secure">
+        <img
+          src="https://constant.myntassets.com/checkout/assets/img/sprite-secure.png"
+          style="height: 28px; width: 23px"
+        />100% SECURE
+      </div>
+    </nav>
+    <section class="section-body">
+      <div id="left-side"></div>
+
+      <div id="right-side"></div>
+    </section>
+    <script>
+      let CONVENIENCE_FEES = 99;
+      let productsArray = JSON.parse(localStorage.getItem("productsArray"));
+      console.log(productsArray);
+      displayBagSummery();
+      function removeFromBag(itemsData) {
+        // console.log(itemsData);
+        productsArray = productsArray.filter(
+          (bagItemId) => bagItemId.id != itemsData
+        );
+        localStorage.setItem("productsArray", JSON.stringify(productsArray));
+        console.log(productsArray);
+        // displayBagSummery();
+        window.location.reload();
+      }
+
+      function displayBagSummery() {
+        let bagSummaryElement = document.querySelector("#right-side");
+        let totalItem = productsArray.length;
+        let totalMRP = 0;
+        let totalDiscount = 0;
+
+        productsArray.forEach((productsArray) => {
+          totalMRP += parseInt(productsArray.original_price);
+          console.log(totalMRP);
+          totalDiscount += productsArray.original_price - productsArray.ruppess;
+        });
+        let finalPayment = totalMRP - totalDiscount + CONVENIENCE_FEES;
+        bagSummaryElement.innerHTML = `
+          <div class="items-details">
+            <h1>PRICE DETAILS (${totalItem} Item)</h1>
+              <div class="items-data">
+                <span>Total MRP</span>
+                <span>&#x20b9;${totalMRP}</span>
+              </div>
+              <div class="items-data">
+                 <span>Discount on MRP</span>
+                <span>&#x20b9;${totalDiscount}</span>
+              </div>
+              <div class="items-data">
+                 <span>Convenience Fee</span>
+                <span>&#x20b9;${CONVENIENCE_FEES}</span>
+              </div>
+              <hr/>
+              <div class="items-data">
+                 <h1>Total Amount</h1>
+                <span>&#x20b9;${finalPayment}</span>
+              </div>
+              <button>PLACE ORDER</button>
+          </div>`;
+      }
+      function generateItemHTML(items) {
+        // console.log(items);
+        return `
+      <div class="add-items">
+              <div class="image">
+                <img src=${items.img} style="height:130px;width:100px">
+            </div>
+            <div class="items-data">
+              <h1>${items.heading}</h1>
+              <h2>${items.description}</h2>
+              <h3>Rs ${items.ruppess} <span class="span1">Rs ${items.original_price} </span> <span class="span2">(${items.discount}%OFF)</span></h3>
+              <p><span>${items.return_date}</span> return available</p>
+              <h4>Delivery by ${items.delivery_date}</h4>
+              <button onclick="removeFromBag(${items.id})">REMOVE</button>
+            </div>
+          </div>
+            `;
+      }
+
+      function displayBagItems() {
+        let bagSummaryElement = document.querySelector("#left-side");
+        // console.log(bagSummaryElement);
+        let innerHtml = "";
+        productsArray.forEach((item) => {
+          innerHtml += generateItemHTML(item);
+          // console.log(innerHtml);
+          bagSummaryElement.innerHTML = innerHtml;
+        });
+      }
+      function onLoad() {
+        displayBagItems();
+        // Loading();
+      }
+      onLoad();
+    </script>
+  </body>
+</html>

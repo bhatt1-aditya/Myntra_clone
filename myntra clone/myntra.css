@@ -1,0 +1,451 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  /* position: relative; */
+}
+
+header {
+  z-index: 1;
+  height: 80px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+img {
+  width: 52px;
+  height: 36px;
+  margin-right: 52px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 94%;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-left img{
+  cursor: pointer;
+}
+.nav-left ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 15px;
+  font-weight: 600;
+  color: rgb(92, 91, 91);
+  font-size: 13px;
+  cursor: pointer;
+
+  /* visibility: hidden; */
+}
+.nav-left .nav-menu .men:hover{
+  border-bottom: 2px solid red;
+
+}
+
+.search-glass {
+  background-color: rgb(245, 241, 241);
+  width: 475px;
+  line-height: 40px;
+  border-radius: 4px;
+  margin: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.search-glass input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 80%;
+  font-size: 12px;
+}
+
+.search-glass i {
+  font-size: 15px;
+  color: rgb(137, 134, 134);
+  margin-right: 20px;
+}
+
+.nav-right span {
+  cursor: pointer;
+  margin: 0 auto;
+  top: 13px;
+  font-size: 10px;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  background-color: rgb(237, 113, 113);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.nav-right .fa-heart, .fa-bag-shopping{
+  cursor: pointer;
+}
+.studio {
+  position: relative;
+}
+
+.studio span {
+  position: absolute;
+  /* top: 3px; */
+  left: 50px;
+  font-size: 10px;
+  color: red;
+}
+
+.nav-right div {
+  margin: 0 13px;
+  text-align: center;
+}
+
+.nav-right div p {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(93, 92, 92);
+}
+
+.nav-left i {
+  font-size: 20px;
+  background-color: rgb(251, 249, 247);
+  padding: 10px;
+  border-radius: 50%;
+  display: none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+/* media query */
+@media only screen and (max-width: 700px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-left i {
+    display: block;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+
+  header {
+    height: 60px;
+  }
+
+  .search-glass {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    left: 0;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid rgb(158, 156, 156);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
+
+  .nav-right div {
+    margin: 0 8px;
+  }
+
+  .nav-right div p {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-left i {
+    display: block;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+
+  header {
+    height: 60px;
+  }
+
+  .search-glass {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    left: 0;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid rgb(158, 156, 156);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
+
+  .nav-right div {
+    margin: 0 8px;
+  }
+
+  .nav-right div p {
+    font-size: 10px;
+  }
+}
+
+.home {
+  padding: 0 25px;
+  margin-top: 20px;
+}
+
+.home .cloth {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.home .cloth span {
+  font-weight: 700;
+  color: rgb(58, 57, 57);
+}
+
+.home .men-t-shirt {
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 10px;
+  color: rgb(58, 57, 57);
+}
+
+.home .men-t-shirt span {
+  color: gray;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.filters {
+  margin-top: 30px;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters h1 {
+  font-size: 15px;
+  /* width: 20%; */
+}
+
+li {
+  list-style: none;
+}
+
+.filters .item {
+  display: flex;
+  gap: 200px;
+  font-size: 13px;
+}
+
+.filters .bundle ul {
+  display: flex;
+  gap: 20px;
+}
+
+.filters .item i {
+  color: rgb(206, 205, 205);
+  font-size: 12px;
+}
+
+.popularity-sort {
+  display: flex;
+  gap: 50px;
+}
+
+.filters .popularity {
+  font-size: 13px;
+  border: 1px solid rgb(206, 205, 205);
+  padding: 10px 15px;
+}
+
+.filters .popularity span {
+  font-weight: 600;
+}
+
+.filters .popularity-sort i {
+  font-size: 15px;
+  color: rgb(206, 205, 205);
+}
+
+section {
+  /* margin-top: 20px; */
+  display: flex;
+  /* padding: 10px 0; */
+  /* padding: 0 25px; */
+
+}
+
+.items-description {
+  border: 1px solid rgb(179, 175, 175);
+  padding: 0 25px;
+  border-top: none;
+  width: 50%;
+  /* position: fixed ; */
+  left: 0;
+  top: 100px;
+  /* bottom: 0; */
+}
+
+.items-description .categories {
+
+
+  width: 100%;
+}
+
+.items-description .brand {
+  border-top: 1px solid black;
+  width: 100%;
+
+}
+
+.items-description .brand .heading-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.items-description .brand .search {
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: rgb(230, 225, 225);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.items-description h1 {
+  margin-top: 10px;
+  font-size: 15px;
+  color: rgb(39, 37, 37);
+}
+
+.items-description .items {
+  margin: 15px 0;
+}
+
+.items-description .items p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.items-description .items p i {
+  color: rgb(224, 219, 219);
+  font-size: 20px;
+  margin-right: 7px;
+}
+
+.items-description .items p span {
+  color: gray;
+  font-size: 10px;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.items-description .items .more {
+  color: red;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.products {
+  padding: 25px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 34px;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.products .products-details {
+  line-height: 25px;
+}
+
+/* .products .products-details .rating{
+  position: absolute;
+  left: 350px;
+  bottom: 110px;
+} */
+.products .products-details h1 {
+  font-size: 15px;
+  color: rgb(57, 56, 56);
+}
+
+.products .products-details p {
+  font-size: 14px;
+}
+
+.products .products-details h2 {
+  font-size: 13px;
+  color: rgb(39, 36, 36);
+}
+
+.products .products-details button {
+  width: 210px;
+  background-color: hotpink;
+  color: white;
+  padding: 4px 0;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.products .products-details button:hover {
+  background-color: red;
+  color: black;
+}
+
+footer{
+  padding: 50px 200px;
+}
